@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambio Climático</title>
+</head>
+<body>
+    <h1>El cambio climático es malo porque:</h1>
+    <p>Uno de sus principales problemas es la alteración de los ecosistemas, lo que lleva a la pérdida de biodiversidad y el desplazamiento de especies. Además, el calentamiento global aumenta la intensidad de fenómenos climáticos extremos como huracanes, sequías e incendios forestales, causando graves desastres naturales. Estos desastres, a su vez, generan altos costos económicos, afectando sectores como la agricultura, la infraestructura y la salud pública. Las comunidades vulnerables son las más afectadas, ya que carecen de recursos para adaptarse a los cambios climáticos, lo que agrava las desigualdades sociales. Asimismo, la elevación del nivel del mar y la pérdida de glaciares representan una amenaza para las costas y la disponibilidad de agua dulce. En resumen, el cambio climático representa una grave amenaza para el bienestar humano, la estabilidad económica y la sostenibilidad del planeta.</p>
+
+    <form method="POST">
+        <label for="causa">Selecciona una causa:</label>
+        <select name="causa" id="causa">
+            {% for causa in causas %}
+            <option value="{{ causa }}">{{ causa }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Enviar</button>
+    </form>
+
+    {% if mensaje %}
+        <p><strong>Información:</strong> {{ mensaje }}</p>
+        {% if imagen_url %}
+            <img src="{{ imagen_url }}" alt="Imagen relacionada" style="max-width: 300px;">
+        {% endif %}
+    {% endif %}
+</body>
+</html>
